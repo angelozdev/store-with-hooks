@@ -1,7 +1,11 @@
-import * as React from "react";
+import * as React from 'react'
 
-function App() {
-  return <div>Hol mundo :D</div>;
+/* Styles */
+import 'normalize.css'
+import './styles/global.css'
+
+function App(): JSX.Element {
+  return <div>Hol mundo :D</div>
 }
 
-export default App;
+export default App
