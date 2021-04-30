@@ -1,7 +1,12 @@
 import * as React from 'react'
+import { Wrapper } from '../atoms'
 
 function Home() {
-  return <div>HOME</div>
+  return (
+    <section>
+      <Wrapper>Homme</Wrapper>
+    </section>
+  )
 }
 
 export default Home

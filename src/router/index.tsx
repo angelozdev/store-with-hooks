@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Routes } from '../constants'
 
 /* Pages */
-import { Pages } from '../components/'
+import { Pages } from '../components'
 
 /* Components */
 import { MainLayout } from '../components/templates'

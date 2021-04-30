@@ -1,27 +1,17 @@
 import * as React from 'react'
 
-/* Router */
-import { Link } from 'react-router-dom'
-import { Routes } from '../../constants'
+/* Types */
+import { WithChildren } from '../../../types'
 
-/* Local types */
-interface Props {
-  children: React.ReactNode
-}
+/* Components */
+import { Header } from '../orgamisms'
 
-function MainLayout({ children }: Props) {
+function MainLayout({ children }: WithChildren) {
   return (
     <React.Fragment>
-      <header>
-        <nav>
-          <Link to={Routes.HOME}>Home</Link>
-          <Link to={Routes.CHECKOUT}>CHECKOUT</Link>
-          <Link to={Routes.CHECKOUT_PAYMENT}>CHECKOUT_PAYMENT</Link>
-          <Link to={Routes.CHECKOUT_SUCCESS}>CHECKOUT_SUCCESS</Link>
-        </nav>
-      </header>
+      <Header />
 
-      <main>{children}</main>
+      <main className="main">{children}</main>
     </React.Fragment>
   )
 }
