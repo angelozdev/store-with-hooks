@@ -6,7 +6,11 @@ import 'normalize.css'
 import './styles/global.css'
 
 function App(): JSX.Element {
-  return <Routes />
+  return (
+    <React.Suspense fallback={<p>Loading...</p>}>
+      <Routes />
+    </React.Suspense>
+  )
 }
 
 export default App
