@@ -15,13 +15,15 @@ function Product({ title, description, image, price }: IProduct) {
       </figure>
 
       <div className="product_item__details">
-        <h2 className="product_item__title">
-          {title} <span>{price}</span>
-        </h2>
+        <h2 className="product_item__title">{title}</h2>
+
+        <p className="product_item__price">
+          Price: $<span>{price}</span>
+        </p>
 
         <p className="product_item__description">{description}</p>
 
-        <button className="product_item__button">Buy</button>
+        <button className="button primary">BUY</button>
       </div>
     </li>
   )

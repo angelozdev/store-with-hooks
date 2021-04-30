@@ -1,7 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+/* const CssMinimizerPlugin = require('css-minimizer-webpack-plugin') */
 
 module.exports = {
   entry: path.resolve(__dirname, 'src', 'index.tsx'),
@@ -18,7 +18,7 @@ module.exports = {
   },
   optimization: {
     minimize: true,
-    minimizer: [new CssMinimizerPlugin()],
+    /* minimizer: [new CssMinimizerPlugin()], */
     splitChunks: {
       maxSize: 50000,
       minSize: 0,
