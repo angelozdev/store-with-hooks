@@ -34,3 +34,26 @@ body {
   text-decoration: none;
   color: black;
 }
+
+/* PRODUCT */
+.home__content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.product_item {
+  flex-grow: 1;
+}
+
+.product_item__image_container {
+  padding: 0;
+  margin: 0;
+}
+
+.product_item__image {
+  width: 100%;
+  max-width: 200px;
+}
