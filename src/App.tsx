@@ -4,6 +4,8 @@ import * as React from 'react'
 import 'normalize.css'
 import './styles/global.css'
 
+const a = ''
+
 function App(): JSX.Element {
   return <div>hola mundo</div>
 }
