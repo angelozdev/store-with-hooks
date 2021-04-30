@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "webpack serve --mode development",
     "build": "rimraf ./dist && webpack --mode production",
-    "eslint": "eslint 'src/**/*.tsx'",
-    "prepare": "husky install"
+    "lint": "eslint --cache ./src/**/*.tsx"
   },
   "keywords": [],
   "author": "Angelo Zambrano <angelozam17@gmail.com>",
@@ -27,7 +26,6 @@
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.4",
     "eslint": "^7.25.0",
-    "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-node": "^11.1.0",
