@@ -2,7 +2,7 @@ import * as React from 'react'
 
 /* Components */
 import { Wrapper } from '../atoms'
-import { Products } from '../molecules'
+import { Products } from '../organisms'
 
 /* Initial State */
 import initialState from '../../initialState'

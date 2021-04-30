@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 /* Components */
-import { Product } from '../atoms'
+import { Product } from '../molecules'
 
 /* Types */
 import { IProduct } from '../../../types'

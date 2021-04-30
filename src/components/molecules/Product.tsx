@@ -8,9 +8,10 @@ function Product({ title, description, image, price }: IProduct) {
     <li className="product_item">
       <figure className="product_item__image_container">
         <img
+          loading="lazy"
           className="product_item__image"
           src={image}
-          alt={`product: ${title}`}
+          alt={`${title} product`}
         />
       </figure>
 

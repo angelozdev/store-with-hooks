@@ -4,7 +4,7 @@ import * as React from 'react'
 import { WithChildren } from '../../../types'
 
 /* Components */
-import { Header } from '../orgamisms'
+import { Header } from '../organisms'
 
 function MainLayout({ children }: WithChildren) {
   return (
