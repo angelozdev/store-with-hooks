@@ -102,6 +102,10 @@ body {
   font-size: 1.25rem;
 }
 
+.product_item__buttons {
+  text-align: center;
+}
+
 /* CHECKOUT */
 .checkout__header {
   display: flex;
@@ -133,6 +137,16 @@ body {
   gap: 1rem;
 }
 
+/* INFORMATION */
+.information__container {
+}
+
+.information__buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
 /* BUTTONS */
 .button:hover {
   filter: brightness(0.9);
@@ -144,10 +158,8 @@ body {
 
 .button {
   padding: 0.725rem 1rem;
-  display: block;
   width: 100%;
   max-width: 300px;
-  margin: 0 auto;
   cursor: pointer;
   border-radius: 0.5rem;
   border: none;
@@ -180,4 +192,24 @@ body {
 
 .button.danger:hover {
   box-shadow: 0px 0px 1rem -0.5rem brown;
+}
+
+/* INPUTS */
+.input {
+  padding: 0.725rem 1rem;
+  display: block;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid gainsboro;
+  transition: 200ms ease all;
+  margin-bottom: 0.5rem;
+  outline: none;
+}
+
+.input:focus:invalid {
+  border: 1px solid brown;
+}
+
+.input:valid {
+  border: 1px solid forestgreen;
 }

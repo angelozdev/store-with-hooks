@@ -24,7 +24,9 @@ function Product({ title, description, image, price }: IProduct) {
 
         <p className="product_item__description">{description}</p>
 
-        <button className="button primary">BUY</button>
+        <div className="product_item__buttons">
+          <button className="button primary">BUY</button>
+        </div>
       </div>
     </li>
   )
