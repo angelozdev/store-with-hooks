@@ -1,7 +1,11 @@
 import * as React from 'react'
 
+/* Router */
+import { Link } from 'react-router-dom'
+import { Routes } from '../../constants'
+
 /* Components */
-import { Wrapper } from '../atoms'
+import { Icons, Wrapper } from '../atoms'
 import { WithSidebar } from '../templates'
 
 function Checkout() {
@@ -19,7 +23,9 @@ function Checkout() {
                 <p>Item name</p>
                 <div className="checkout__actions">
                   <p>$10</p>
-                  <button className="button small danger">remove</button>
+                  <button className="button small danger">
+                    <Icons.Trash width="1rem" height="1rem" />
+                  </button>
                 </div>
               </li>
             </ul>
@@ -30,7 +36,9 @@ function Checkout() {
               Total Price <strong>$1.100</strong>
             </p>
 
-            <button className="button medium primary">Go to order</button>
+            <Link to={Routes.CHECKOUT_INFO}>
+              <button className="button medium primary">Go to order</button>
+            </Link>
           </div>
         </WithSidebar>
       </Wrapper>

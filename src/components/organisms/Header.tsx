@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { Routes } from '../../constants'
 
 /* Components */
-import { Wrapper } from '../atoms'
+import { Icons, Wrapper } from '../atoms'
 
 function Header() {
   return (
@@ -16,9 +16,9 @@ function Header() {
             <Link to={Routes.HOME}>PlatziConf Merch</Link>
           </h1>
 
-          <span>
-            <Link to={Routes.CHECKOUT}>Checkout</Link>
-          </span>
+          <Link to={Routes.CHECKOUT}>
+            <Icons.Cart width="1.5rem" height="1.5rem" strokeWidth="1px" />
+          </Link>
         </nav>
       </Wrapper>
     </header>

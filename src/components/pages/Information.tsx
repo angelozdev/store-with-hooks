@@ -1,4 +1,10 @@
 import * as React from 'react'
+
+/* Router */
+/* import { Link } from 'react-router-dom'
+import { Routes } from '../../constants' */
+
+/* Components */
 import { Wrapper } from '../atoms'
 import { WithSidebar } from '../templates'
 
@@ -72,9 +78,12 @@ function Information() {
                 <button type="button" className="button">
                   Back
                 </button>
+
+                {/* <Link to={Routes.CHECKOUT_PAYMENT}> */}
                 <button type="submit" className="button primary">
                   pay
                 </button>
+                {/* </Link> */}
               </div>
             </form>
           </div>

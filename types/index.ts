@@ -11,3 +11,5 @@ export interface IProduct {
   price: number
   description: string
 }
+
+export type SVGProps = React.SVGAttributes<HTMLOrSVGElement>
