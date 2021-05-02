@@ -1,6 +1,6 @@
 import { IProduct } from '../types'
 
-const initialState: { products: IProduct[]; cart: Array<any> } = {
+const initialState: { products: IProduct[]; cart: Array<IProduct> } = {
   cart: [],
   products: [
     {

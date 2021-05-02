@@ -3,15 +3,11 @@ import * as React from 'react'
 /* Components */
 import { Product } from '../molecules'
 
-/* Types */
-import { IProduct } from '../../../types'
+/* Context */
+import { CartContext } from '../../contexts'
 
-/* Local types */
-interface Props {
-  products: IProduct[]
-}
-
-function Products({ products = [] }: Props) {
+function Products() {
+  const { products } = React.useContext(CartContext.Context)
   return (
     <ul>
       {products.map((product) => (
