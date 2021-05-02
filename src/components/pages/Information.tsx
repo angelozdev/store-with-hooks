@@ -1,10 +1,14 @@
 import * as React from 'react'
+
+/* Types */
 import { IBuyer } from '../../../types'
+
+/* Context */
 import { CartContext } from '../../contexts'
 
 /* Router */
-/* import { Link } from 'react-router-dom'
-import { Routes } from '../../constants' */
+import { useHistory } from 'react-router'
+import { Routes } from '../../constants'
 
 /* Components */
 import { Wrapper } from '../atoms'
@@ -14,8 +18,11 @@ function Information() {
   // refs
   const formRef = React.useRef<HTMLFormElement>(null)
 
-  const { addBuyer, ...rest } = React.useContext(CartContext.Context)
-  console.log('🚀 ~ file: Information.tsx ~ line 18 ~ Information ~ rest', rest)
+  // context
+  const { addBuyer, cart } = React.useContext(CartContext.Context)
+
+  // history
+  const history = useHistory()
 
   // helper methods
   const handleSubmit = (e: React.FormEvent) => {
@@ -36,6 +43,8 @@ function Information() {
     }
 
     addBuyer?.(buyer as IBuyer)
+
+    history.push(Routes.CHECKOUT_PAYMENT)
   }
 
   return (
@@ -113,20 +122,32 @@ function Information() {
               />
 
               <div className="information__buttons">
-                <button type="button" className="button">
+                <button
+                  type="button"
+                  className="button"
+                  onClick={() => history.goBack()}
+                >
                   Back
                 </button>
 
-                {/* <Link to={Routes.CHECKOUT_PAYMENT}> */}
                 <button type="submit" className="button primary">
                   pay
                 </button>
-                {/* </Link> */}
               </div>
             </form>
           </div>
           <div>
-            <p>Order: </p>
+            <h2>Order: </h2>
+            <ul className="checkout__products">
+              {cart.map((product) => (
+                <li className="checkout__product" key={product.id}>
+                  <p>{product.title}</p>
+                  <p>
+                    <strong>${product.price}</strong>
+                  </p>
+                </li>
+              ))}
+            </ul>
           </div>
         </WithSidebar>
       </Wrapper>
