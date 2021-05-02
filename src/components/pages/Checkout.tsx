@@ -4,11 +4,21 @@ import * as React from 'react'
 import { Link } from 'react-router-dom'
 import { Routes } from '../../constants'
 
+/* Contexts */
+import { CartContext } from '../../contexts'
+
 /* Components */
 import { Icons, Wrapper } from '../atoms'
 import { WithSidebar } from '../templates'
 
 function Checkout() {
+  const { cart, removeFromCart } = React.useContext(CartContext.Context)
+  const totalPrice = React.useMemo(() => {
+    return cart.reduce((acc, cur) => {
+      return cur.price + acc
+    }, 0)
+  }, [cart])
+
   return (
     <section className="checkout__container">
       <Wrapper>
@@ -18,28 +28,44 @@ function Checkout() {
               <h1 className="checkout__title">Product list:</h1>
             </div>
 
-            <ul className="checkout__products">
-              <li className="checkout__product">
-                <p>Item name</p>
-                <div className="checkout__actions">
-                  <p>$10</p>
-                  <button className="button small danger">
-                    <Icons.Trash width="1rem" height="1rem" />
-                  </button>
-                </div>
-              </li>
-            </ul>
+            {cart.length ? (
+              <ul className="checkout__products">
+                {cart.map((product) => (
+                  <li key={product.id} className="checkout__product">
+                    <p>{product.title}</p>
+                    <div className="checkout__actions">
+                      <p>
+                        $<span>{product.price}</span>
+                      </p>
+                      <button
+                        className="button small danger"
+                        onClick={() => removeFromCart?.(product.id)}
+                      >
+                        <Icons.Trash width="1rem" height="1rem" />
+                      </button>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>You do not have any product in the cart.</p>
+            )}
           </div>
 
-          <div className="checkout__sidebar">
-            <p>
-              Total Price <strong>$1.100</strong>
-            </p>
+          {Boolean(cart.length) && (
+            <div className="checkout__sidebar">
+              <p>
+                Total Price{' '}
+                <strong>
+                  $<span>{totalPrice}</span>
+                </strong>
+              </p>
 
-            <Link to={Routes.CHECKOUT_INFO}>
-              <button className="button medium primary">Go to order</button>
-            </Link>
-          </div>
+              <Link to={Routes.CHECKOUT_INFO}>
+                <button className="button medium primary">Go to order</button>
+              </Link>
+            </div>
+          )}
         </WithSidebar>
       </Wrapper>
     </section>
