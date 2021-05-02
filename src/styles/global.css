@@ -52,6 +52,12 @@ body {
   color: black;
 }
 
+.header__cart_container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 /* PRODUCT */
 .home__content ul {
   list-style: none;

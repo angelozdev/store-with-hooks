@@ -3,7 +3,18 @@ import * as React from 'react'
 /* Types */
 import { IProduct } from '../../../types'
 
-function Product({ title, description, image, price }: IProduct) {
+/* Contexts */
+import { CartContext } from '../../contexts'
+
+/* Local types */
+interface Props {
+  product: IProduct
+}
+
+function Product({ product }: Props) {
+  const { title, description, image, price } = product
+  const { addToCart } = React.useContext(CartContext.Context)
+
   return (
     <li className="product_item">
       <figure className="product_item__image_container">
@@ -25,7 +36,12 @@ function Product({ title, description, image, price }: IProduct) {
         <p className="product_item__description">{description}</p>
 
         <div className="product_item__buttons">
-          <button className="button primary">BUY</button>
+          <button
+            className="button primary"
+            onClick={() => addToCart?.(product)}
+          >
+            BUY
+          </button>
         </div>
       </div>
     </li>
