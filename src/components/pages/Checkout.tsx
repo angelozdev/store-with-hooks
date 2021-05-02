@@ -13,14 +13,9 @@ import { WithSidebar } from '../templates'
 
 function Checkout() {
   /* context */
-  const { cart, removeFromCart } = React.useContext(CartContext.Context)
-
-  /*  */
-  const totalPrice = React.useMemo(() => {
-    return cart.reduce((acc, cur) => {
-      return cur.price + acc
-    }, 0)
-  }, [cart])
+  const { cart, removeFromCart, totalPrice } = React.useContext(
+    CartContext.Context
+  )
 
   return (
     <section className="checkout__container">

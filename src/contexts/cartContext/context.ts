@@ -5,6 +5,7 @@ interface CartContext {
   cart: IProduct[]
   products: IProduct[]
   buyer: Partial<IBuyer>
+  totalPrice: number
   removeFromCart?: (productId: string) => void
   addToCart?: (product: IProduct) => void
   addBuyer?: (buyer: IBuyer) => void
@@ -13,7 +14,8 @@ interface CartContext {
 const CartContext = React.createContext<CartContext>({
   cart: [],
   products: [],
-  buyer: {}
+  buyer: {},
+  totalPrice: 0
 })
 
 export default CartContext

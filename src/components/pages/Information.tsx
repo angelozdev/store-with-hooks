@@ -19,7 +19,7 @@ function Information() {
   const formRef = React.useRef<HTMLFormElement>(null)
 
   // context
-  const { addBuyer, cart } = React.useContext(CartContext.Context)
+  const { addBuyer, cart, totalPrice } = React.useContext(CartContext.Context)
 
   // history
   const history = useHistory()
@@ -46,6 +46,12 @@ function Information() {
 
     history.push(Routes.CHECKOUT_PAYMENT)
   }
+
+  React.useEffect(() => {
+    if (!cart.length) {
+      history.replace(Routes.HOME)
+    }
+  }, [])
 
   return (
     <section className="information__container">
@@ -148,6 +154,10 @@ function Information() {
                 </li>
               ))}
             </ul>
+
+            <p>
+              Total: <strong>${totalPrice}</strong>
+            </p>
           </div>
         </WithSidebar>
       </Wrapper>
