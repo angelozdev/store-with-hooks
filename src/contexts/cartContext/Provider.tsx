@@ -4,13 +4,16 @@ import * as React from 'react'
 import { Context } from './'
 
 /* Types */
-import { IProduct, WithChildren } from '../../../types'
+import { IBuyer, IProduct, WithChildren } from '../../../types'
 
 /* Initial State */
 import initialState from '../../initialState'
 
 function Provider({ children }: WithChildren) {
-  const [state, setState] = React.useState(initialState)
+  const [state, setState] = React.useState({
+    ...initialState,
+    buyer: {}
+  })
 
   const addToCart = (product: IProduct) => {
     setState({
@@ -26,11 +29,20 @@ function Provider({ children }: WithChildren) {
     })
   }
 
+  const addBuyer = (buyer: IBuyer) => {
+    setState({
+      ...state,
+      buyer
+    })
+  }
+
   const value = {
     cart: state.cart,
     products: state.products,
+    buyer: state.buyer,
     addToCart,
-    removeFromCart
+    removeFromCart,
+    addBuyer
   }
 
   return <Context.Provider value={value}>{children}</Context.Provider>

@@ -12,7 +12,10 @@ import { Icons, Wrapper } from '../atoms'
 import { WithSidebar } from '../templates'
 
 function Checkout() {
+  /* context */
   const { cart, removeFromCart } = React.useContext(CartContext.Context)
+
+  /*  */
   const totalPrice = React.useMemo(() => {
     return cart.reduce((acc, cur) => {
       return cur.price + acc
